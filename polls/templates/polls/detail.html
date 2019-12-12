@@ -4,8 +4,15 @@
   <p><strong>{{ error_message }}</strong></p>
 {% endif %}
 
-
-
+<form action="{% url 'polls:crawling' question.id %}" method="post">
+	<select id="browsers" name="browsers">
+	{% for userin in question.choice_set.all %}
+		<option value="크롬">{{ choice.choice_text }}</option>
+	{% endfor %}
+	</select>
+  {% csrf_token %}
+  <input type="submit" value="제출하기">
+</form>
 <form action="{% url 'polls:vote' question.id %}" method="post">
   {% csrf_token %}
   {% for choice in question.choice_set.all %}

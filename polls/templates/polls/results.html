@@ -2,8 +2,9 @@
 
 <ul>
 {% for choice in question.choice_set.all %}
-    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+    <li>{{ choice.choice_text }} - {{ choice.votes }} 명{{ choice.votes|pluralize }}</li>
 {% endfor %}
 </ul>
 
-<a href="{% url 'polls:detail' question.id %}">다시 선택하실래요?</a>
+<!-- <a href="{% url 'polls:detail' question.id %}">다시 선택하실래요?</a><br>-->
+<a href="{% url 'polls:index' %}">감사합니다!!</a>
